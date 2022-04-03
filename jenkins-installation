@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#Author: talk2olaide@hotmail.com
+#Description: Jenkins Installation on Ubuntu
+
+#Install Java
+sudo apt update
+sudo apt install openjdk-8-jdk
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+#Install Jenkins
+sudo apt update
+sudo apt install jenkins
+sudo service jenkins start
+sudo service jenkins enable
+
+#Unlock Jenkins
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+#end
